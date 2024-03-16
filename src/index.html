@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet">
+</head>
+<body>
+
+
+<!-- Upper Navbar -->
+<div class="bg-amber-300 flex flex-row justify-between z-10 p-2 md:w-[calc(100%-256px)] md:ml-64" id="navBar">
+    
+    <!--Left side navbar-->
+    <div class="bg-green-300 leftSideMenu p-2 rounded-full flex flex-row justify-between gap-2">
+        <div class="rounded-full bg-white p-2" id="sidePanelControlBtn1"></div>
+        <div class="rounded-full bg-indigo-300 p-2"></div>
+        <div class="rounded-full bg-indigo-300 p-2"></div>
+        <div class="rounded-full bg-indigo-300 p-2"></div>
+    </div>
+    
+    <!--Right side navbar-->
+    <div class="bg-purple-300 rightSideMenu p-2 rounded-full flex flex-row justify-between gap-2">
+        <div class="rounded-full p-2 bg-red-300"></div>
+        <div class="rounded-full p-2 bg-red-300"></div>
+        <div class="rounded-full p-2 bg-red-300"></div>
+        <div class="rounded-full p-2 bg-red-300" id="sidePanelControlBtn"></div>
+    </div>
+
+</div>
+
+<div class="fixed top-0 left-0 z-20 w-full h-full invisible md:invisible bg-black/5" id="sidebarOverlay"></div>
+
+<!--Side panel-->
+<div class="bg-pink-300 p-2 h-full flex flex-col fixed top-0 left-0 z-30 gap-2 w-64 invisible md:visible" id="sidePanel">
+
+    <!--Logo portion-->
+    <div class="rounded-full bg-green-300 p-2 flex flex-row justify-start gap-2">
+        <!--Logo Icon-->
+        <div class="rounded-full bg-blue-300 p-2"></div>
+        <!--Logo Name-->
+        <div class="rounded-full bg-blue-300 p-2"></div>
+    </div>
+
+
+    <!--Middle portion-->
+    <ul class="grow flex flex-col gap-2">
+        
+        <li class="rounded-full bg-amber-300 p-2 flex flex-row gap-2">
+            <!--Icon-->
+            <div class=" rounded-full bg-blue-300 p-2"></div>
+            <!--Text-->
+            <div class="rounded-full bg-blue-300 p-2"></div>
+        </li>
+
+    </ul>
+   
+    <!--Footer portion-->
+    <div class="rounded-full bg-neutral-300 p-2"></div>
+
+
+<script>
+    const sidePanelControlBtn = document.querySelector('#sidePanelControlBtn')
+    const sidePanel = document.querySelector('#sidePanel')
+    const sidebarOverlay = document.querySelector('#sidebarOverlay')
+    const navBar = document.querySelector('#navBar')
+
+    sidePanelControlBtn.addEventListener('click', function (e) {
+
+        sidePanel.classList.toggle('invisible')
+        sidebarOverlay.classList.toggle('invisible')
+
+        /*
+        // md screen
+        sidePanel.classList.toggle('md:visible')
+        navBar.classList.toggle('md:w-[calc(100%-256px)]')
+        navBar.classList.toggle('md:ml-64')
+
+        if (!navBar.classList.contains('md:ml-64')) {
+            sidePanel.classList.add('md:visible')
+          }
+        
+        */
+        
+    })
+
+    sidebarOverlay.addEventListener('click', function (e) {   
+
+        sidePanel.classList.toggle('invisible')
+        sidebarOverlay.classList.toggle('invisible')
+
+    })
+
+    // small screen : btn clicked -> overlay visible, sidepanel visible 
+    // small screen : overlay visible, sidepanel visible
+    // small screen : overlay clicked -> overlay invisible, sidepanel invisible 
+    // midum screen : sidepanel visible, right shift navbar
+    // midum screen : btn clicked -> sidepanel invisible, left shift navbar 
+
+
+</script>
+</body>
+</html>
